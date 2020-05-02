@@ -1,3 +1,4 @@
 *pg.go
 .idea/
 go.sum
+*.exe
