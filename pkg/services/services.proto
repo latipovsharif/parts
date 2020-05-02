@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package services;
+
+service Part {
+  rpc Create(CreateRequest) returns (Response) {}
+  rpc Update(UpdateRequest) returns (Response) {}
+  rpc Delete(DeleteRequest) returns (Response) {}
+  rpc Get(GetRequest) returns (PartResponse) {}
+}
+
+message Response {
+  bool Success = 1;
+  string Message = 2;
+}
+
+message PartResponse {
+  int64 ID = 1;
+  int32 ManufacturerID = 2;
+  string VendorCode = 3;
+  int64 CreatedAt = 4;
+}
+
+message CreateRequest {
+  int32 ManufacturerID = 1;
+  string VendorCode = 2;
+}
+
+message UpdateRequest {
+  int64 ID = 1;
+  int32 ManufacturerID = 2;
+  string VendorCode = 3;
+}
+
+message DeleteRequest {
+  int64 ID = 1;
+}
+
+message GetRequest {
+  int64 ID = 1;
+}
