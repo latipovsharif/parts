@@ -1,2 +1,2 @@
 drop table manufacturer;
-drop table parts;
+drop table part;

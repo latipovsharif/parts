@@ -8,13 +8,14 @@ import (
 	"golang.org/x/net/context"
 )
 
+// Manufacturer of the parts
 type Manufacturer struct {
 	tableName struct{} `pg:"manufacturer"`
 	ID        int32
 	Name      string
 }
 
-// Part
+// Part of the automobiles
 type Part struct {
 	tableName      struct{} `pg:"part"`
 	ID             int64
@@ -35,7 +36,7 @@ func (ps *Part) Create(ctx context.Context, r *CreateRequest) (*Response, error)
 		return nil, errors.Wrap(err, "cannot create part")
 	}
 
-	return &Response{}, nil
+	return &Response{Success: true, Message: "part created successfully"}, nil
 }
 
 // Update part by id
@@ -52,7 +53,7 @@ func (ps *Part) Update(ctx context.Context, r *UpdateRequest) (*Response, error)
 
 	return &Response{
 		Success: true,
-		Message: "part was created",
+		Message: "part was updated",
 	}, nil
 }
 
@@ -95,6 +96,7 @@ func (ps *Part) Get(ctx context.Context, r *GetRequest) (*SingleResponse, error)
 	}, nil
 }
 
+// List of the part with paging
 func (ps *Part) List(ctx context.Context, r *ListRequest) (*ListResponse, error) {
 	ctx, cancel := context.WithTimeout(ctx, time.Second*1)
 	defer cancel()
@@ -153,6 +155,7 @@ func (ps *Part) List(ctx context.Context, r *ListRequest) (*ListResponse, error)
 	}, nil
 }
 
+// BatchCreate parts
 func (ps *Part) BatchCreate(ctx context.Context, r *BatchCreateRequest) (*Response, error) {
 	return nil, nil
 }

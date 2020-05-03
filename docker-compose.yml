@@ -1,0 +1,19 @@
+version: "3"
+services:
+  web:
+    build: .
+    ports:
+      - "9090:9090"
+    depends_on:
+      - "postgres"
+    environment:
+      DATABASE_PASS: 123
+      DATABASE_USER: postgres
+      WAIT_HOSTS: postgres:5432
+  postgres:
+    restart: always
+    image: postgres:latest
+    environment:
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: parts
+      POSTGRES_USER: postgres

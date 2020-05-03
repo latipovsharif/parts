@@ -1,3 +1,4 @@
+.vscode/
 *pg.go
 .idea/
 go.sum

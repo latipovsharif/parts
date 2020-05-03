@@ -1,6 +1,8 @@
 package services
 
 import (
+	"os"
+
 	"github.com/go-pg/pg/v9"
 )
 
@@ -9,9 +11,11 @@ var pool *pg.DB
 func init() {
 	pool = pg.Connect(
 		&pg.Options{
-			Database: "parts",
-			Password: "123",
-			User:     "postgres",
+			Addr:       "postgres:5432",
+			Database:   "parts",
+			Password:   os.Getenv("DATABASE_PASS"),
+			User:       "postgres",
+			MaxRetries: 100,
 		})
 }
 
