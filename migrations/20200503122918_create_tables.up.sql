@@ -1,0 +1,2 @@
+create table manufacturer(id serial primary key not null, name text not null);
+create table part (id bigserial primary key not null, manufacturer_id integer not null references manufacturer(id), vendor_code text not null, created_at timestamp not null default now(), deleted_at timestamp);

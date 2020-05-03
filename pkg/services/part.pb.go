@@ -367,6 +367,226 @@ func (x *GetRequest) GetID() int64 {
 	return 0
 }
 
+type BatchCreateRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Parts []*CreateRequest `protobuf:"bytes,1,rep,name=Parts,proto3" json:"Parts,omitempty"`
+}
+
+func (x *BatchCreateRequest) Reset() {
+	*x = BatchCreateRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_part_proto_msgTypes[6]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *BatchCreateRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BatchCreateRequest) ProtoMessage() {}
+
+func (x *BatchCreateRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_part_proto_msgTypes[6]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BatchCreateRequest.ProtoReflect.Descriptor instead.
+func (*BatchCreateRequest) Descriptor() ([]byte, []int) {
+	return file_part_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *BatchCreateRequest) GetParts() []*CreateRequest {
+	if x != nil {
+		return x.Parts
+	}
+	return nil
+}
+
+type ListRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Page     int32 `protobuf:"varint,1,opt,name=Page,proto3" json:"Page,omitempty"`
+	PageSize int32 `protobuf:"varint,2,opt,name=PageSize,proto3" json:"PageSize,omitempty"`
+}
+
+func (x *ListRequest) Reset() {
+	*x = ListRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_part_proto_msgTypes[7]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *ListRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListRequest) ProtoMessage() {}
+
+func (x *ListRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_part_proto_msgTypes[7]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListRequest.ProtoReflect.Descriptor instead.
+func (*ListRequest) Descriptor() ([]byte, []int) {
+	return file_part_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *ListRequest) GetPage() int32 {
+	if x != nil {
+		return x.Page
+	}
+	return 0
+}
+
+func (x *ListRequest) GetPageSize() int32 {
+	if x != nil {
+		return x.PageSize
+	}
+	return 0
+}
+
+type ListResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Response  *Response       `protobuf:"bytes,1,opt,name=response,proto3" json:"response,omitempty"`
+	PageCount int32           `protobuf:"varint,2,opt,name=PageCount,proto3" json:"PageCount,omitempty"`
+	Body      []*PartResponse `protobuf:"bytes,3,rep,name=Body,proto3" json:"Body,omitempty"`
+}
+
+func (x *ListResponse) Reset() {
+	*x = ListResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_part_proto_msgTypes[8]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *ListResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListResponse) ProtoMessage() {}
+
+func (x *ListResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_part_proto_msgTypes[8]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListResponse.ProtoReflect.Descriptor instead.
+func (*ListResponse) Descriptor() ([]byte, []int) {
+	return file_part_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *ListResponse) GetResponse() *Response {
+	if x != nil {
+		return x.Response
+	}
+	return nil
+}
+
+func (x *ListResponse) GetPageCount() int32 {
+	if x != nil {
+		return x.PageCount
+	}
+	return 0
+}
+
+func (x *ListResponse) GetBody() []*PartResponse {
+	if x != nil {
+		return x.Body
+	}
+	return nil
+}
+
+type SingleResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Response *Response     `protobuf:"bytes,1,opt,name=response,proto3" json:"response,omitempty"`
+	Body     *PartResponse `protobuf:"bytes,2,opt,name=Body,proto3" json:"Body,omitempty"`
+}
+
+func (x *SingleResponse) Reset() {
+	*x = SingleResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_part_proto_msgTypes[9]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *SingleResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SingleResponse) ProtoMessage() {}
+
+func (x *SingleResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_part_proto_msgTypes[9]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SingleResponse.ProtoReflect.Descriptor instead.
+func (*SingleResponse) Descriptor() ([]byte, []int) {
+	return file_part_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *SingleResponse) GetResponse() *Response {
+	if x != nil {
+		return x.Response
+	}
+	return nil
+}
+
+func (x *SingleResponse) GetBody() *PartResponse {
+	if x != nil {
+		return x.Body
+	}
+	return nil
+}
+
 var File_part_proto protoreflect.FileDescriptor
 
 var file_part_proto_rawDesc = []byte{
@@ -399,23 +619,54 @@ var file_part_proto_rawDesc = []byte{
 	0x1f, 0x0a, 0x0d, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
 	0x12, 0x0e, 0x0a, 0x02, 0x49, 0x44, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x02, 0x49, 0x44,
 	0x22, 0x1c, 0x0a, 0x0a, 0x47, 0x65, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x0e,
-	0x0a, 0x02, 0x49, 0x44, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x02, 0x49, 0x44, 0x32, 0xe8,
-	0x01, 0x0a, 0x04, 0x50, 0x61, 0x72, 0x74, 0x12, 0x37, 0x0a, 0x06, 0x43, 0x72, 0x65, 0x61, 0x74,
-	0x65, 0x12, 0x17, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x43, 0x72, 0x65,
-	0x61, 0x74, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x12, 0x2e, 0x73, 0x65, 0x72,
-	0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00,
-	0x12, 0x37, 0x0a, 0x06, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x12, 0x17, 0x2e, 0x73, 0x65, 0x72,
-	0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x52, 0x65, 0x71, 0x75,
-	0x65, 0x73, 0x74, 0x1a, 0x12, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x52,
-	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x37, 0x0a, 0x06, 0x44, 0x65, 0x6c,
-	0x65, 0x74, 0x65, 0x12, 0x17, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x44,
-	0x65, 0x6c, 0x65, 0x74, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x12, 0x2e, 0x73,
-	0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
-	0x22, 0x00, 0x12, 0x35, 0x0a, 0x03, 0x47, 0x65, 0x74, 0x12, 0x14, 0x2e, 0x73, 0x65, 0x72, 0x76,
-	0x69, 0x63, 0x65, 0x73, 0x2e, 0x47, 0x65, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a,
+	0x0a, 0x02, 0x49, 0x44, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x02, 0x49, 0x44, 0x22, 0x43,
+	0x0a, 0x12, 0x42, 0x61, 0x74, 0x63, 0x68, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x12, 0x2d, 0x0a, 0x05, 0x50, 0x61, 0x72, 0x74, 0x73, 0x18, 0x01, 0x20,
+	0x03, 0x28, 0x0b, 0x32, 0x17, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x43,
+	0x72, 0x65, 0x61, 0x74, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x52, 0x05, 0x50, 0x61,
+	0x72, 0x74, 0x73, 0x22, 0x3d, 0x0a, 0x0b, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65,
+	0x73, 0x74, 0x12, 0x12, 0x0a, 0x04, 0x50, 0x61, 0x67, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05,
+	0x52, 0x04, 0x50, 0x61, 0x67, 0x65, 0x12, 0x1a, 0x0a, 0x08, 0x50, 0x61, 0x67, 0x65, 0x53, 0x69,
+	0x7a, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x05, 0x52, 0x08, 0x50, 0x61, 0x67, 0x65, 0x53, 0x69,
+	0x7a, 0x65, 0x22, 0x88, 0x01, 0x0a, 0x0c, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x12, 0x2e, 0x0a, 0x08, 0x72, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x12, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73,
+	0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x52, 0x08, 0x72, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x12, 0x1c, 0x0a, 0x09, 0x50, 0x61, 0x67, 0x65, 0x43, 0x6f, 0x75, 0x6e, 0x74,
+	0x18, 0x02, 0x20, 0x01, 0x28, 0x05, 0x52, 0x09, 0x50, 0x61, 0x67, 0x65, 0x43, 0x6f, 0x75, 0x6e,
+	0x74, 0x12, 0x2a, 0x0a, 0x04, 0x42, 0x6f, 0x64, 0x79, 0x18, 0x03, 0x20, 0x03, 0x28, 0x0b, 0x32,
 	0x16, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x50, 0x61, 0x72, 0x74, 0x52,
-	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f,
-	0x33,
+	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x52, 0x04, 0x42, 0x6f, 0x64, 0x79, 0x22, 0x6c, 0x0a,
+	0x0e, 0x53, 0x69, 0x6e, 0x67, 0x6c, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
+	0x2e, 0x0a, 0x08, 0x72, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x0b, 0x32, 0x12, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x52, 0x65, 0x73,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x52, 0x08, 0x72, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
+	0x2a, 0x0a, 0x04, 0x42, 0x6f, 0x64, 0x79, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x16, 0x2e,
+	0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x50, 0x61, 0x72, 0x74, 0x52, 0x65, 0x73,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x52, 0x04, 0x42, 0x6f, 0x64, 0x79, 0x32, 0xe6, 0x02, 0x0a, 0x04,
+	0x50, 0x61, 0x72, 0x74, 0x12, 0x37, 0x0a, 0x06, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x12, 0x17,
+	0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65,
+	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x12, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63,
+	0x65, 0x73, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x37, 0x0a,
+	0x06, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x12, 0x17, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63,
+	0x65, 0x73, 0x2e, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
+	0x1a, 0x12, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x52, 0x65, 0x73, 0x70,
+	0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x37, 0x0a, 0x06, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65,
+	0x12, 0x17, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x44, 0x65, 0x6c, 0x65,
+	0x74, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x12, 0x2e, 0x73, 0x65, 0x72, 0x76,
+	0x69, 0x63, 0x65, 0x73, 0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12,
+	0x37, 0x0a, 0x03, 0x47, 0x65, 0x74, 0x12, 0x14, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65,
+	0x73, 0x2e, 0x47, 0x65, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x18, 0x2e, 0x73,
+	0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x53, 0x69, 0x6e, 0x67, 0x6c, 0x65, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x41, 0x0a, 0x0b, 0x42, 0x61, 0x74, 0x63,
+	0x68, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x12, 0x1c, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63,
+	0x65, 0x73, 0x2e, 0x42, 0x61, 0x74, 0x63, 0x68, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x52, 0x65,
+	0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x12, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73,
+	0x2e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x37, 0x0a, 0x04, 0x4c,
+	0x69, 0x73, 0x74, 0x12, 0x15, 0x2e, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x4c,
+	0x69, 0x73, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x16, 0x2e, 0x73, 0x65, 0x72,
+	0x76, 0x69, 0x63, 0x65, 0x73, 0x2e, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
+	0x73, 0x65, 0x22, 0x00, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -430,29 +681,42 @@ func file_part_proto_rawDescGZIP() []byte {
 	return file_part_proto_rawDescData
 }
 
-var file_part_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
+var file_part_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
 var file_part_proto_goTypes = []interface{}{
-	(*Response)(nil),      // 0: services.Response
-	(*PartResponse)(nil),  // 1: services.PartResponse
-	(*CreateRequest)(nil), // 2: services.CreateRequest
-	(*UpdateRequest)(nil), // 3: services.UpdateRequest
-	(*DeleteRequest)(nil), // 4: services.DeleteRequest
-	(*GetRequest)(nil),    // 5: services.GetRequest
+	(*Response)(nil),           // 0: services.Response
+	(*PartResponse)(nil),       // 1: services.PartResponse
+	(*CreateRequest)(nil),      // 2: services.CreateRequest
+	(*UpdateRequest)(nil),      // 3: services.UpdateRequest
+	(*DeleteRequest)(nil),      // 4: services.DeleteRequest
+	(*GetRequest)(nil),         // 5: services.GetRequest
+	(*BatchCreateRequest)(nil), // 6: services.BatchCreateRequest
+	(*ListRequest)(nil),        // 7: services.ListRequest
+	(*ListResponse)(nil),       // 8: services.ListResponse
+	(*SingleResponse)(nil),     // 9: services.SingleResponse
 }
 var file_part_proto_depIdxs = []int32{
-	2, // 0: services.Part.Create:input_type -> services.CreateRequest
-	3, // 1: services.Part.Update:input_type -> services.UpdateRequest
-	4, // 2: services.Part.Delete:input_type -> services.DeleteRequest
-	5, // 3: services.Part.Get:input_type -> services.GetRequest
-	0, // 4: services.Part.Create:output_type -> services.Response
-	0, // 5: services.Part.Update:output_type -> services.Response
-	0, // 6: services.Part.Delete:output_type -> services.Response
-	1, // 7: services.Part.Get:output_type -> services.PartResponse
-	4, // [4:8] is the sub-list for method output_type
-	0, // [0:4] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	2,  // 0: services.BatchCreateRequest.Parts:type_name -> services.CreateRequest
+	0,  // 1: services.ListResponse.response:type_name -> services.Response
+	1,  // 2: services.ListResponse.Body:type_name -> services.PartResponse
+	0,  // 3: services.SingleResponse.response:type_name -> services.Response
+	1,  // 4: services.SingleResponse.Body:type_name -> services.PartResponse
+	2,  // 5: services.Part.Create:input_type -> services.CreateRequest
+	3,  // 6: services.Part.Update:input_type -> services.UpdateRequest
+	4,  // 7: services.Part.Delete:input_type -> services.DeleteRequest
+	5,  // 8: services.Part.Get:input_type -> services.GetRequest
+	6,  // 9: services.Part.BatchCreate:input_type -> services.BatchCreateRequest
+	7,  // 10: services.Part.List:input_type -> services.ListRequest
+	0,  // 11: services.Part.Create:output_type -> services.Response
+	0,  // 12: services.Part.Update:output_type -> services.Response
+	0,  // 13: services.Part.Delete:output_type -> services.Response
+	9,  // 14: services.Part.Get:output_type -> services.SingleResponse
+	0,  // 15: services.Part.BatchCreate:output_type -> services.Response
+	8,  // 16: services.Part.List:output_type -> services.ListResponse
+	11, // [11:17] is the sub-list for method output_type
+	5,  // [5:11] is the sub-list for method input_type
+	5,  // [5:5] is the sub-list for extension type_name
+	5,  // [5:5] is the sub-list for extension extendee
+	0,  // [0:5] is the sub-list for field type_name
 }
 
 func init() { file_part_proto_init() }
@@ -533,6 +797,54 @@ func file_part_proto_init() {
 				return nil
 			}
 		}
+		file_part_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*BatchCreateRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_part_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*ListRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_part_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*ListResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_part_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*SingleResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -540,7 +852,7 @@ func file_part_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_part_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   6,
+			NumMessages:   10,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
@@ -569,7 +881,9 @@ type PartClient interface {
 	Create(ctx context.Context, in *CreateRequest, opts ...grpc.CallOption) (*Response, error)
 	Update(ctx context.Context, in *UpdateRequest, opts ...grpc.CallOption) (*Response, error)
 	Delete(ctx context.Context, in *DeleteRequest, opts ...grpc.CallOption) (*Response, error)
-	Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*PartResponse, error)
+	Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*SingleResponse, error)
+	BatchCreate(ctx context.Context, in *BatchCreateRequest, opts ...grpc.CallOption) (*Response, error)
+	List(ctx context.Context, in *ListRequest, opts ...grpc.CallOption) (*ListResponse, error)
 }
 
 type partClient struct {
@@ -607,9 +921,27 @@ func (c *partClient) Delete(ctx context.Context, in *DeleteRequest, opts ...grpc
 	return out, nil
 }
 
-func (c *partClient) Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*PartResponse, error) {
-	out := new(PartResponse)
+func (c *partClient) Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*SingleResponse, error) {
+	out := new(SingleResponse)
 	err := c.cc.Invoke(ctx, "/services.Part/Get", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *partClient) BatchCreate(ctx context.Context, in *BatchCreateRequest, opts ...grpc.CallOption) (*Response, error) {
+	out := new(Response)
+	err := c.cc.Invoke(ctx, "/services.Part/BatchCreate", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *partClient) List(ctx context.Context, in *ListRequest, opts ...grpc.CallOption) (*ListResponse, error) {
+	out := new(ListResponse)
+	err := c.cc.Invoke(ctx, "/services.Part/List", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -621,7 +953,9 @@ type PartServer interface {
 	Create(context.Context, *CreateRequest) (*Response, error)
 	Update(context.Context, *UpdateRequest) (*Response, error)
 	Delete(context.Context, *DeleteRequest) (*Response, error)
-	Get(context.Context, *GetRequest) (*PartResponse, error)
+	Get(context.Context, *GetRequest) (*SingleResponse, error)
+	BatchCreate(context.Context, *BatchCreateRequest) (*Response, error)
+	List(context.Context, *ListRequest) (*ListResponse, error)
 }
 
 // UnimplementedPartServer can be embedded to have forward compatible implementations.
@@ -637,8 +971,14 @@ func (*UnimplementedPartServer) Update(context.Context, *UpdateRequest) (*Respon
 func (*UnimplementedPartServer) Delete(context.Context, *DeleteRequest) (*Response, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Delete not implemented")
 }
-func (*UnimplementedPartServer) Get(context.Context, *GetRequest) (*PartResponse, error) {
+func (*UnimplementedPartServer) Get(context.Context, *GetRequest) (*SingleResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Get not implemented")
+}
+func (*UnimplementedPartServer) BatchCreate(context.Context, *BatchCreateRequest) (*Response, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method BatchCreate not implemented")
+}
+func (*UnimplementedPartServer) List(context.Context, *ListRequest) (*ListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method List not implemented")
 }
 
 func RegisterPartServer(s *grpc.Server, srv PartServer) {
@@ -717,6 +1057,42 @@ func _Part_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Part_BatchCreate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BatchCreateRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PartServer).BatchCreate(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/services.Part/BatchCreate",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PartServer).BatchCreate(ctx, req.(*BatchCreateRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Part_List_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PartServer).List(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/services.Part/List",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PartServer).List(ctx, req.(*ListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _Part_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "services.Part",
 	HandlerType: (*PartServer)(nil),
@@ -736,6 +1112,14 @@ var _Part_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Get",
 			Handler:    _Part_Get_Handler,
+		},
+		{
+			MethodName: "BatchCreate",
+			Handler:    _Part_BatchCreate_Handler,
+		},
+		{
+			MethodName: "List",
+			Handler:    _Part_List_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

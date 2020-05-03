@@ -6,7 +6,9 @@ service Part {
   rpc Create(CreateRequest) returns (Response) {}
   rpc Update(UpdateRequest) returns (Response) {}
   rpc Delete(DeleteRequest) returns (Response) {}
-  rpc Get(GetRequest) returns (PartResponse) {}
+  rpc Get(GetRequest) returns (SingleResponse) {}
+  rpc BatchCreate(BatchCreateRequest) returns (Response) {}
+  rpc List(ListRequest) returns (ListResponse) {}
 }
 
 message Response {
@@ -38,4 +40,24 @@ message DeleteRequest {
 
 message GetRequest {
   int64 ID = 1;
+}
+
+message BatchCreateRequest {
+  repeated CreateRequest Parts = 1;
+}
+
+message ListRequest {
+  int32 Page = 1;
+  int32 PageSize = 2;
+}
+
+message ListResponse {
+  Response response = 1;
+  int32 PageCount = 2;
+  repeated PartResponse Body = 3;
+}
+
+message SingleResponse {
+  Response response = 1;
+  PartResponse Body = 2;
 }
