@@ -1,26 +1,20 @@
 package services
 
 import (
-	"database/sql"
-	"log"
-
-	_ "github.com/lib/pq"
+	"github.com/go-pg/pg/v9"
 )
 
-var pool *sql.DB
+var pool *pg.DB
 
 func init() {
-	var err error
-
-	//cs := os.Getenv("CONNECTION_STRING")
-	cs := "postgres://postgres:123@localhost:5432/parts?sslmode=disable"
-
-	pool, err = sql.Open("postgres", cs)
-	if err != nil {
-		log.Fatal("unable to use data source name", err)
-	}
+	pool = pg.Connect(
+		&pg.Options{
+			Database: "parts",
+			Password: "123",
+			User:     "postgres",
+		})
 }
 
-func getConnection() *sql.DB {
+func getConnection() *pg.DB {
 	return pool
 }
